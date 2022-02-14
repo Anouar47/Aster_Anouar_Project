@@ -1,0 +1,162 @@
+'use strict';
+
+const fs = require('fs');
+
+process.stdin.resume();
+process.stdin.setEncoding('utf-8');
+
+let inputString = '';
+let currentLine = 0;
+
+process.stdin.on('data', function(inputStdin) {
+    inputString += inputStdin;
+});
+
+process.stdin.on('end', function() {
+    inputString = inputString.split('\n');
+
+    main();
+});
+
+function readLine() {
+    return inputString[currentLine++];
+}
+
+/*
+ * Complete the 'jumpingOnClouds' function below.
+ *
+ * The function is expected to return an INTEGER.
+ * The function accepts INTEGER_ARRAY c as parameter.
+ */
+
+function jumpingOnClouds(c) {
+    // Write your code here
+    let num_jumps =0;
+for (let i=0;i<c.length;i++)
+    {
+        console.log(i+"i_main");
+        //console.log(c.length);
+        if (c[i+1]==1)
+        {
+            num_jumps+=1;
+            i=i+1;
+          console.log(i+"i1");
+            
+        }
+        else if (c[i+1]==0)
+        {
+            
+            if(c[i+2]==0 && (i+2)<c.length)
+            {
+                num_jumps+=1;
+                i=i+1;
+                console.log(i+"i2");
+            }
+            else if (c[i+2]==1 && (i+2)<c.length) {
+                num_jumps=num_jumps+2;
+                i=i+2;
+              //  console.log(num_jumps);
+               console.log(i+"i3");
+            }
+            else {
+                num_jumps++;
+            }
+        }
+    }
+    return num_jumps;
+}
+
+function main() {
+    const ws = fs.createWriteStream(process.env.OUTPUT_PATH);
+
+    const n = parseInt(readLine().trim(), 10);
+
+    const c = readLine().replace(/\s+$/g, '').split(' ').map(cTemp => parseInt(cTemp, 10));
+
+    const result = jumpingOnClouds(c);
+
+    ws.write(result + '\n');
+
+    ws.end();
+}
+'use strict';
+
+const fs = require('fs');
+
+process.stdin.resume();
+process.stdin.setEncoding('utf-8');
+
+let inputString = '';
+let currentLine = 0;
+
+process.stdin.on('data', function(inputStdin) {
+    inputString += inputStdin;
+});
+
+process.stdin.on('end', function() {
+    inputString = inputString.split('\n');
+
+    main();
+});
+
+function readLine() {
+    return inputString[currentLine++];
+}
+
+/*
+ * Complete the 'jumpingOnClouds' function below.
+ *
+ * The function is expected to return an INTEGER.
+ * The function accepts INTEGER_ARRAY c as parameter.
+ */
+
+function jumpingOnClouds(c) {
+    // Write your code here
+    let num_jumps =0;
+for (let i=0;i<c.length;i++)
+    {
+        console.log(i+"i_main");
+        //console.log(c.length);
+        if (c[i+1]==1)
+        {
+            num_jumps+=1;
+            i=i+1;
+          console.log(i+"i1");
+            
+        }
+        else if (c[i+1]==0)
+        {
+            
+            if(c[i+2]==0 && (i+2)<c.length)
+            {
+                num_jumps+=1;
+                i=i+1;
+                console.log(i+"i2");
+            }
+            else if (c[i+2]==1 && (i+2)<c.length) {
+                num_jumps=num_jumps+2;
+                i=i+2;
+              //  console.log(num_jumps);
+               console.log(i+"i3");
+            }
+            else {
+                num_jumps++;
+            }
+        }
+    }
+    return num_jumps;
+}
+
+function main() {
+    const ws = fs.createWriteStream(process.env.OUTPUT_PATH);
+
+    const n = parseInt(readLine().trim(), 10);
+
+    const c = readLine().replace(/\s+$/g, '').split(' ').map(cTemp => parseInt(cTemp, 10));
+
+    const result = jumpingOnClouds(c);
+
+    ws.write(result + '\n');
+
+    ws.end();
+}
